@@ -18,7 +18,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "setup:remote": "./terraform/scripts/setup_remote.sh",
+    "setup:remote": "NODE_ENV=dev ./terraform/scripts/setup_remote.sh",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "audi": "echo peace",
