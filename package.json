@@ -18,6 +18,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "setup:remote": "$PWD/setup_remote.sh",
+    "setup:remote:forward_port": "$PWD/forward_port.sh",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
