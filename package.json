@@ -18,10 +18,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "setup:remote": "$PWD/setup_remote.sh",
-    "setup:remote:forward_port": "$PWD/forward_port.sh",
+    "setup:remote": "./terraform/scripts/setup_remote.sh",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "audi": "echo peace",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

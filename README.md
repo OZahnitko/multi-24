@@ -30,3 +30,5 @@ Will need to have two commands:
 
 - one to edit sshd_config
 - and one to forward the port after the restart
+
+Localhost should be running when setting up the remote, otherwise there'll be connection errors.
