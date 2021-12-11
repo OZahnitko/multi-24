@@ -18,10 +18,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "setup:remote": "NODE_ENV=dev ./terraform/scripts/setup_remote.sh",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "remote:setup": "NODE_ENV=dev ./terraform/scripts/remote_setup.sh",
+    "remote:teardown": "NODE_ENV=dev ./terraform/scripts/remote_teardown.sh"
   },
   "eslintConfig": {
     "extends": [

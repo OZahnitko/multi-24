@@ -6,7 +6,8 @@ All of this is just a worse alternative to using something like [ngrok](https://
 
 ```json
 "scripts" : {
-    "setup:remote" : "NODE_ENV=dev ./terraform/scripts/setup_remote.sh"
+    "remote:setup" : "NODE_ENV=dev ./terraform/scripts/remote_setup.sh",
+    "remote:teardown" : "NODE_ENV=dev ./terraform/scripts/remote_teardown.sh"
 }
 ```
 
@@ -117,3 +118,30 @@ $SLACK_WEBHOOK_URL
 ```
 
 - Send a message to the `remote-dev` channel in Slack.
+
+## `./terraform/scripts/remote_teardown.sh`
+
+```bash
+INSTANCE_PUBLIC_IP=$(terraform output -raw instance_public_ip)
+```
+
+- Store the IP address of the instance that's about to be shut down, so that a notification message regarding it's tear-down can be sent to Slack.
+
+```bash
+terraform apply -destroy --auto-approve
+```
+
+- Teardown all remote infrastructure provisioned by Terraform.
+
+```bash
+[ $NODE_ENV = "dev" ] && SLACK_WEBHOOK_URL=$(grep SLACK_WEBHOOK_URL ./scripts/.env.local | cut -d '=' -f 2-) || SLACK_WEBHOOK_URL=$SLACK_WEBHOOK_URL
+
+curl \
+-X \
+POST \
+-H 'Content-type: application/json' \
+--data '{"text":"'"http://$INSTANCE_PUBLIC_IP:3000 has been successfully shut down."'"}' \
+$SLACK_WEBHOOK_URL`
+```
+
+- Send a message to the `remote-dev` channel in Slack regarding the tear-down of the remote.
