@@ -1,3 +1,8 @@
+- [Multi-24](#multi-24)
+  - [`./package.json`](#packagejson)
+  - [`./terraform/scripts/remote_setup.sh`](#terraformscriptsremote_setupsh)
+  - [`./terraform/scripts/remote_teardown.sh`](#terraformscriptsremote_teardownsh)
+
 # Multi-24
 
 All of this is just a worse alternative to using something like [ngrok](https://ngrok.com/) to tunnel through to localhost.
@@ -13,7 +18,7 @@ All of this is just a worse alternative to using something like [ngrok](https://
 
 - Use `NODE_ENV=dev` to set the environment variable for the execution of the script.
 
-## `./terraform/scripts/setup_remote.sh`
+## `./terraform/scripts/remote_setup.sh`
 
 ```bash
 cd ./terraform
