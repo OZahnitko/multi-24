@@ -56,20 +56,3 @@ resource "aws_instance" "multi_24" {
     Name = "Multi-24 Instance"
   }
 }
-
-# resource "null_resource" "port_forward" {
-#   depends_on = [aws_instance.multi_24]
-
-#   provisioner "local-exec" {
-#     command = <<EOF
-#       chmod 400 terraform.pem
-#       ssh \
-#         ec2-user@3.86.207.74 \
-#         -i terraform.pem \
-#         -o StrictHostKeyChecking=no \
-#         << EOF2
-#           sudo sed -i "s/#GatewayPorts no/GatewayPorts yes/" /etc/ssh/sshd_config
-#         EOF2
-#     EOF
-#   }
-# }

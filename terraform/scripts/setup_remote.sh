@@ -24,13 +24,13 @@ sudo reboot
 
 EOF
 
-echo "I sleep"
+echo "I sleep..."
 sleep 20
-echo "I still sleep"
+echo "I still sleep..."
 sleep 20
-echo "I yet still sleep"
+echo "Yet still I sleep..."
 sleep 20
-echo "Real s___!?"
+echo "Real s___!?!"
 
 ssh \
 -fNtR \
